@@ -1,0 +1,32 @@
+<div>
+	<h4>Deposit Amount</h4>
+	<%= form_for :account, url: accounts_path, method: :post do |f| %>
+		<div class="row">
+	  	<div class='col-sm-6'>
+        <div class="form-group">
+			    <%= f.label :account_number %><br />
+			    <%= f.number_field :account_number, id: 'number', class: 'form-control' %>
+			  </div>
+			  <div class="text-danger">
+					<% if flash.any? %>
+						<%= flash[:error] %>
+					<% end %>
+				</div>
+			</div>
+	  </div>
+
+	  <div class="row">
+	  	<div class='col-sm-6'>
+        <div class="form-group">
+			    <%= f.label :amount %><br />
+			    <%= f.number_field :amount, class: 'form-control' %>
+	  		</div>
+			</div>
+	  </div>
+
+	  <div class="actions">
+	    <%= f.submit "submit" %>
+	  </div></br>
+	  <div><%= link_to 'Back', root_path %></div>
+	<% end %>
+</div>

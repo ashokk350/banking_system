@@ -1,0 +1,12 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Dear Customer, Your account is <%= @mode %> by <%= @transaction.amount %> on 
+    	<%= @transaction.created_at.strftime("%b %d, %Y") %>.
+    </p>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BankingSystem</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+		  <a class="navbar-brand" href="#">Banking System</a>
+		  <ul class="navbar-nav pull-right">
+	      <li class="nav-item dropdown">
+	        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	          <%= current_user.email if user_signed_in? %>
+	        </a>
+	        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+	          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+	        </div>
+	      </li>
+	    </ul>
+		</nav>
+		<% if notice || alert %>
+	  	<p class="notice"><%= notice %></p>
+	    <p class="alert"><%= alert %></p>
+	  <% end %>
+    <div class="container">
+		  <%= yield %>
+		</div>
+  </body>
+</html>
